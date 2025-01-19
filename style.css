@@ -114,6 +114,7 @@ h1,h2,h3,h4,h5,h6{
   border: solid;
   padding: 0.5em;
   padding-top: 0;
+  padding-left: 1.2em;
   border-width: 1px;
 }
 #resume section p{

@@ -1,6 +1,173 @@
+/* Global variable */
+:root {
+  --color-accent: oklch(65% 50% 166);
+  accent-color: var(--color-accent);
+}
+
 body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch)/2);
   }
+
+/* Navigation bar */
+body nav{
+  display: flex;
+}
+
+body nav a{
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+}
+
+body nav a.current{
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.1em;
+  font-weight: bold;
+}
+
+body nav a:hover{
+  border-bottom-color: var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.1em;
+}
+
+/* Form style */
+/* OLD BLOCK STYLE */
+/* body form input{
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-block: 0.1em;
+}
+
+body form textarea{
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-block: 0.1em;
+} */
+
+/* NEW CSS GRID STYLE */
+body form{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+body form label{
+  display: grid; 
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+body form button{
+  grid-column: 1 / -1;
+}
+
+/* Project Style */
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.projects article{
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+.projects article h2{
+  margin: 0;
+}
+
+
+h1{
+  font-size: 4rem;
+}
+
+h1,h2,h3,h4,h5,h6{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Resume style */
+#resume{
+  font: inherit;
+}
+
+#resume section{
+  border: solid;
+  padding: 0.5em;
+  padding-top: 0;
+  border-width: 1px;
+}
+#resume section p{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 0.5em;
+}
+
+#resume section h2{
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+#resume section h4{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 0.5em;
+}
+
+.l1:hover{
+  color: transparent;
+  position: relative;
+}
+
+.l1:hover::after{
+  content: "中文";
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 15%;
+}
+
+.l2:hover{
+  color: transparent;
+  position: relative;
+}
+
+.l2:hover::after{
+  content: "廣東話";
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 15%;
+}
+
+.l3:hover{
+  color: transparent;
+  position: relative;
+}
+
+.l3:hover::after{
+  content: "日本語";
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 15%;
+}

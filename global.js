@@ -60,3 +60,30 @@ for (let page of pages) {
 
 }
 
+// automatical color-scheme dropdown
+let scheme_prefered = window.matchMedia("(prefers-color-scheme: light)").matches? 'light' : 'dark';
+
+document.body.insertAdjacentHTML(
+    'afterbegin',
+    `
+      <label class="color-scheme">
+          Theme:
+          <select>
+              <option value='light dark'>Automatic(${scheme_prefered})</option>
+              <option value='light'>Light</option>
+              <option value='dark'>Dark</option>
+          </select>
+      </label>
+    `
+  );
+
+  let select = document.querySelector('label select');
+  select.addEventListener('input',function(event){
+    console.log('color scheme changed to', event.target.value);
+    document.documentElement.style.setProperty('color-scheme',event.target.value);
+    localStorage.colorScheme = event.target.value;
+  });
+
+  if ('colorScheme' in localStorage){
+    document.documentElement.style.setProperty('color-scheme',localStorage.colorScheme);
+  }

@@ -98,7 +98,7 @@ document.body.insertAdjacentHTML(
     let data = new FormData(form);
     for (let [name, value] of data){
         url = url + name + "=" + encodeURIComponent(value) + "&";
-        console.log(url);
+        // console.log(url);
     }
 
     location.href = url;

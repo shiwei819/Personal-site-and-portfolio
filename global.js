@@ -87,3 +87,18 @@ document.body.insertAdjacentHTML(
   if ('colorScheme' in localStorage){
     document.documentElement.style.setProperty('color-scheme',localStorage.colorScheme);
   }
+
+
+  // Contact me Improvement
+  let form = $$('form')[0];
+  form?.addEventListener('submit',function(event){
+    event.preventDefault();
+    let url = form.action + "?";
+    let data = new FormData(form);
+    for (let [name, value] of data){
+        url = url + name + "=" + encodeURIComponent(value) + "&";
+        console.log(url);
+    }
+
+    location.href = url;
+  });

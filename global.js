@@ -86,6 +86,7 @@ document.body.insertAdjacentHTML(
 
   if ('colorScheme' in localStorage){
     document.documentElement.style.setProperty('color-scheme',localStorage.colorScheme);
+    select.value = localStorage.colorScheme;
   }
 
 

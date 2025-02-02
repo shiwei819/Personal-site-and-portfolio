@@ -183,3 +183,25 @@ body label.color-scheme{
   font-family: inherit;
   font-size: 80%;
 }
+
+/* homepage github data */
+h2 {
+  padding-top: 2rem;
+}
+#profile-stats dl{
+  display: grid;
+  grid-template-columns: repeat(5);
+}
+
+#profile-stats dt{
+  grid-row: 1;
+  font-size: 1em;
+  font-weight: bold;
+  color: gray;
+}
+
+#profile-stats dd{
+  grid-row: 2;
+  font-size: 2em;
+  font-weight: normal;
+}

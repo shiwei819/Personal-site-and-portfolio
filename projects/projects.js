@@ -350,8 +350,3 @@ arcs.forEach((arc, i) => {
         });
 });
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-// problem remained: 
-// unknown bug- input something, like ee. select on the chart, the projects disappeared, click one more time, it appears
-// intermedia state, like input "ww", select on the chart, cancel one "w", the selecting effect disappear, of course, empty the input, the selecting effect is correctly present.

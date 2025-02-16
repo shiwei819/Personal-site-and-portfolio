@@ -6,6 +6,10 @@
   --border-color: oklch(50% 10% 200 / 40%);
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
@@ -13,7 +17,7 @@ body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch)/2);
-  }
+}
 
 /* Navigation bar */
 body nav{
@@ -277,7 +281,6 @@ h2 {
 #profile-stats dt{
   grid-row: 1;
   font-size: 1em;
-  font-weight: bold;
   color: gray;
 }
 
@@ -285,4 +288,124 @@ h2 {
   grid-row: 2;
   font-size: 2em;
   font-weight: normal;
+}
+
+
+/* Meta */
+#stats dl{
+  display: grid;
+  grid-template-columns: repeat(5);
+}
+
+#stats dt{
+  grid-row: 1;
+  font-size: 0.8em;
+  color: gray;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#stats dd{
+  display: flex;
+  font-size: 1.6em;
+  text-align: right;
+  grid-template-columns: repeat(5);
+  justify-content: flex-end;
+  margin-right: 1.8em;
+}
+
+.gridlines{
+  opacity: 0.2;
+}
+
+/* chart */
+dl.info{
+  margin: 0;
+  display: grid;
+  gap: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+
+  dt{
+    grid-column: 1;
+    opacity: 0.8;
+    font-size: 0.8em;
+    padding: 0.2em;
+    color: grey;
+    font-family: inherit;
+    text-align: right;
+  }
+  dd{
+    grid-column: 2;
+    font-size: 1em;
+    color: black;
+    font-family: inherit;
+  }
+}
+
+dl.info[hidden]:not(:hover, :focus-within){
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip{
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 5px 5px 10px oklab(0.7 -0.04 -0.07);
+  border-radius: 10%;
+  backdrop-filter: blur(1px) saturate(180%);
+  padding: 0.1em;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover{
+  transform: scale(1.5);
+}
+
+/* brush rect style*/
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+/* language breakdown */
+dl.stats{
+  display: grid;
+  grid-template-columns: repeat(5);
+
+  dt{
+    grid-row: 1;
+    font-size: 1.2em;
+    color: gray;
+    text-align: center;
+  }
+  
+  dd{
+    grid-row: 2;
+    font-size: 1.3em;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+  }
 }

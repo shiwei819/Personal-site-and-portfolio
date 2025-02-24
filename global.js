@@ -135,13 +135,25 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2'){
     //create element to modify inside element in details
     const article = document.createElement('article');
 
-    article.innerHTML = `
-      <h3>${project.title}</h3>
-      <img src="${project.image}" alt="${project.title}" width=${width} height=${height}>
-      <div><p>${project.description}</p>
-      <p class="year">${project.year}<p>
-      </div>
-    `;
+    if (project.url) {
+      article.innerHTML = `
+        <h3>${project.title}</h3>
+        <a href=${project.url} target="_blank">
+        <img src="${project.image}" alt="${project.title}" width=${width} height=${height}>
+        </a>
+        <div><p>${project.description}</p>
+        <p class="year">${project.year}<p>
+        </div>
+      `;
+    } else {
+      article.innerHTML = `
+        <h3>${project.title}</h3>
+        <img src="${project.image}" alt="${project.title}" width=${width} height=${height}>
+        <div><p>${project.description}</p>
+        <p class="year">${project.year}<p>
+        </div>
+      `;
+    }
 
     containerElement.appendChild(article);
   }
